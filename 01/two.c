@@ -32,7 +32,6 @@ int main(void) {
  
   int sum = 0;
   int c = 0;
-  char line[256];
   
   int first = -1;
   int last = -1;
