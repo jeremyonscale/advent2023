@@ -18,7 +18,7 @@ int read_number(int i, int j) {
     int number = -1;
     sscanf(&schematic[i][initial_j+1], "%d", &number);
     parts[idx++] = number;
-    printf("found a number %d attached to it at %d, %d\n", number, i, j);
+    // printf("found a number %d attached to it at %d, %d\n", number, i, j);
     return 1;
   } 
   return 0;
@@ -46,7 +46,7 @@ int main(void) {
     if (schematic[i][0] != '\0') {
       for (j = 0; j < MAX_J; j++) {
         if (schematic[i][j] == '*') {
-          printf("found candidate at %d, %d\n", i, j);
+          // printf("found candidate at %d, %d\n", i, j);
           memset(parts, 0, sizeof(int)*9);
           idx = 0;
           
@@ -66,7 +66,7 @@ int main(void) {
           }
           
           if (idx == 2) {
-            printf("found GEAR %d at %d, %d\n", parts[0] * parts[1], i, j);
+            // printf("found GEAR %d at %d, %d\n", parts[0] * parts[1], i, j);
             sum += parts[0] * parts[1];
           }
         }
