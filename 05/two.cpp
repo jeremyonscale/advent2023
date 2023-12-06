@@ -27,15 +27,16 @@ int main(void) {
     ranges.push_back(range);
   }
 
+/*  
   for (int i = 0; i < seeds.size(); i++) {
     std::cout << seeds[i] << " " << ranges[i] << std::endl;
   }
-
+*/
 
   std::list<std::list<struct threesome>> maps;
   char dummy1[64], dummy2[64];  
   while (scanf("%s %s\n", &dummy1, &dummy2) == 2) {
-    std::cout << std::endl;
+//    std::cout << std::endl;
     std::list<struct threesome> map;
     
     size_t dest_range_start = -1;
@@ -47,7 +48,7 @@ int main(void) {
       thr.dest_range_start = dest_range_start;
       thr.source_range_start = source_range_start;
       thr.range_length = range_length;
-      std::cout << thr.dest_range_start << " " << thr.source_range_start << " " << thr.range_length << std::endl;
+//      std::cout << thr.dest_range_start << " " << thr.source_range_start << " " << thr.range_length << std::endl;
       map.push_back(thr);
     }
     maps.push_back(map);
@@ -56,9 +57,9 @@ int main(void) {
   
   size_t min = std::numeric_limits<size_t>::max();
   for (size_t i = 0; i < seeds.size(); i++) {
+    std::cout << "seed " << seeds[i] << std::endl;
     for (int offset = 0; offset < ranges[i]; offset++) {
       size_t n = seeds[i] + offset;
-      std::cout << "seed " << n << std::endl;
       for (auto &map : maps) {
         size_t new_n = -1;
 //        std::cout << "new map" << std::endl;  
@@ -75,7 +76,7 @@ int main(void) {
         }
 //        std::cout << n << std::endl;
       }
-      std::cout << "n = " << n << std::endl;
+//      std::cout << "n = " << n << std::endl;
       if (n < min) {
         min = n;
       }
