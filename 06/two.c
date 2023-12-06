@@ -10,7 +10,7 @@ int main(void) {
 */
  
   int ways = 0;
-  for (int n = 0; n < time; n++) {
+  for (size_t n = 0; n < time; n++) {
     ways += (n*(time-n) > distance);
   }
   
