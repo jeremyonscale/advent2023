@@ -47,9 +47,9 @@ int main(void) {
   size_t i = 0;
   size_t steps = 0;
   do {
-    std::cout << current << " -> ";
+//    std::cout << current << " -> ";
     current = (instructions[(steps++ % instructions.size())] == 0) ? nodes[current].first : nodes[current].second;
-    std::cout << current << std::endl;
+//    std::cout << current << std::endl;
   } while (current != "ZZZ");
   
   std::cout << steps << std::endl;

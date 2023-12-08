@@ -49,39 +49,21 @@ int main(void) {
     }  
   }
   
-  bool done = true;
-  size_t i = 0;
-  size_t steps = 0;
-  do {
+  // make a loop with each guy and see what happens
   
-/*      
-    for (auto &c : current) {
-      std::cout << c << " ";
-    }  
-    std::cout << " -> ";
-*/
-    
-    for (auto &c : current) {
-      c = (instructions[(steps % instructions.size())] == 0) ? nodes[c].first : nodes[c].second;
-    }
-    steps++;
-    
-/*    
-    for (auto &c : current) {
-      std::cout << c << " ";
-    }  
-    std::cout << std::endl;
-*/
-    
-    done = true;
-    for (auto &c : current) {
-      done &= (c[2] == 'Z');
-    }  
-    
-    
-  } while (!done);
+  for (auto &c : current) {
+    size_t step = 0;  
+    auto first = c;
+    do {
+      c = (instructions[(step++ % instructions.size())] == 0) ? nodes[c].first : nodes[c].second;
+      if (c[2] == 'Z') {
+        std::cout << first << " " << step << std::endl;
+        break;
+      }
+    } while (c != first);
+  }
   
-  std::cout << steps << std::endl;
+//  std::cout << steps << std::endl;
   
   return 0;
 }
