@@ -15,11 +15,13 @@ int main(void) {
     while (iss >> n) {
       data[0].push_back(n);  
     }
-    
+
+/*    
     for (int j = 0; j < data[0].size(); j++) {
       std::cout << data[0][j] << " ";
     }
     std::cout << std::endl;
+*/
   
     bool done = false;
     int i = 0;
@@ -33,13 +35,15 @@ int main(void) {
         done &= (derivative == 0);
       }
     
+/*   
       for (int j = 0; j < data[i].size(); j++) {
         std::cout << data[i][j] << " ";
       }   
       std::cout << std::endl;
+*/
     }
 
-    std::cout << std::endl;
+//    std::cout << std::endl;
   
     // add a zero at the last order
     data[i].push_back(0);
@@ -47,11 +51,12 @@ int main(void) {
     // go up and extrapolate
     for (i = data.size()-2; i >= 0; i--) {
       data[i].push_back(data[i+1][data[i+1].size()-1] + data[i][data[i].size()-1]);  
-    
+/*   
       for (int j = 0; j < data[i].size(); j++) {
         std::cout << data[i][j] << " ";
       }   
       std::cout << std::endl;
+*/
     }
   
     result += data[0][data[0].size()-1];
