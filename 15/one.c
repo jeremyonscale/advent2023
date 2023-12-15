@@ -21,15 +21,16 @@ int main(void) {
   while (!feof(stdin)) {
     int i = 0;
     int c = 0;
-    while ((c = getchar()) != ',' && c != EOF) {
+    while ((c = getchar()) != ',' && c != '\n' && c != EOF) {
       instruction[i++] = c;
     }
     instruction[i] = '\0';
     
-    int h = hash(instruction);
-    total += h;
-    
-    printf("%s %d %d\n", instruction, h, total);
+    if (i != 0) {
+      int h = hash(instruction);
+      total += h;
+      printf("%s %d %d\n", instruction, h, total);
+    }
     
   }
   
